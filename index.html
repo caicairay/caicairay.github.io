@@ -24,24 +24,75 @@
 	<body>
 		<div class="reveal">
 			<div class="slides">
+
 				<section>
 					<section>
 						<h1>Updates</h1>
+						<h2>"Cloud Field Orientation"</h2>
 						<p>Jan-09-2019</p>
 						<p>Cao,Zhuo</p>
 					</section>
 					<section>
-						<p>This slide was hosted on <a href="https://caicairay.github.io"> https://caicairay.github.io</a></p>
+						<p>This slide is hosted on <a href="https://caicairay.github.io"> https://caicairay.github.io</a></p>
 					</section>
 				</section>
+
 				<section>
-					<h2>Review</h2>
-					<iframe src="https://drive.google.com/file/d/1hQUg-Du5cv1ouqwBHe94Dep_daH6h_xw/preview" width="640" height="480"></iframe>
-					<p>
-						For more information, click 
-						<a href="https://mycuhk-my.sharepoint.com/:f:/g/personal/1155098510_link_cuhk_edu_hk/EmMmFZfAvKhEq5Pqa8Uyr2kBBz6gGI_y617QJoESWx3ohQ?e=2nniay">HERE</a>
-					</p>
+					<section>
+						<h2>Review</h2>
+					</section>
+					<section>
+						<p>Li et al. 2013</p>
+						<img width="400" data-src="figs/hb-theory.png">
+						<img width="400" data-src="figs/hb-dist.png">
+					</section>
+					<section>
+						<p>What about simulation?</p>
+						<p class="fragment">The most staightforward method is to find out the <span class="fragment highlight-red">ridges</span> of filaments</p>
+						<p class="fragment" style="text-align: left;">We use</p>
+						<ul>
+							<li class="fragment">Subspace Constrained Mean-Shift (<strong>SCMS</strong>) to find ridges (based on Mean Shift and Hessian matrix)</li>
+							<li class="fragment"><strong>Convolution</strong> to accelerate it</li>
+						</ul>
+					</section>
+					<section>
+						<iframe data-src="https://drive.google.com/file/d/1hQUg-Du5cv1ouqwBHe94Dep_daH6h_xw/preview" width="480" height="480"></iframe>
+						<p>
+							For more information, click
+							<a href="https://mycuhk-my.sharepoint.com/:f:/g/personal/1155098510_link_cuhk_edu_hk/EmMmFZfAvKhEq5Pqa8Uyr2kBBz6gGI_y617QJoESWx3ohQ?e=2nniay">HERE</a>
+						</p>
+					</section>
 				</section>
+
+				<section>
+					<section>
+						<h2>3D view</h2>
+						<iframe data-src="iframes/wholespace.html" width="900" height="560" frameborder="0" marginwidth="0" marginheight="0" scrolling="no" allowfullscreen> </iframe>
+					</section>
+					<section>
+						<h2>Problem</h2>
+						<ul>
+							<li class="fragment">Take too many resources</li>
+							<li class="fragment">The structure could be too complicated</li>
+						</ul>
+					</section>
+					<section>
+						<h2>New Strategy</h2>
+						<ul>
+							<li class="fragment">Isolating filaments</li>
+							<li class="fragment">Find long axis of each</li>
+						</ul>
+					</section>
+				</section>
+
+				<section>
+					<section>
+						<h2>Filament Isolation</h2>
+						<p>DBSCAN</p>
+						<iframe width="450" height="450" frameborder="0" scrolling="no" data-src="//arogozhnikov.github.io/images/opera/post/clustering-dbscan-smiley.gif"></iframe>
+					</section>
+				</section>
+
 				<section>
 					<section>
 					<h2>Covariance Matrix</h2>
@@ -108,12 +159,9 @@
 
 				<section>
 					<h2>iframe test</h2>
-					<iframe src="example.html" width="900" height="560" frameborder="0" marginwidth="0" marginheight="0" scrolling="no" allowfullscreen> </iframe>
+					<iframe data-src="iframes/example.html" width="900" height="560" frameborder="0" marginwidth="0" marginheight="0" scrolling="no" allowfullscreen> </iframe>
 				</section>
-				<section>
-					<h2>iframe test</h2>
-					<iframe src="wholespace.html" width="900" height="560" frameborder="0" marginwidth="0" marginheight="0" scrolling="no" allowfullscreen> </iframe>
-				</section>
+
 			</div>
 		</div>
 
@@ -125,17 +173,19 @@
 			// - https://github.com/hakimel/reveal.js#configuration
 			// - https://github.com/hakimel/reveal.js#dependencies
 			Reveal.initialize({
+				transition: 'convex', // none/fade/slide/convex/concave/zoom
 				math: {
 					mathjax: 'https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js',
 					config: 'TeX-AMS_HTML-full'  // See http://docs.mathjax.org/en/latest/config-files.html
 				},
-
+				viewDistance: 3,
 				dependencies: [
 					{ src: 'plugin/markdown/marked.js' },
 					{ src: 'plugin/markdown/markdown.js' },
 					{ src: 'plugin/notes/notes.js', async: true },
 					{ src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
-					{ src: 'plugin/math/math.js', async: true }
+					{ src: 'plugin/math/math.js', async: true },
+					{ src: 'plugin/zoom-js/zoom.js', async: true }
 				]
 			});
 		</script>
