@@ -3435,7 +3435,7 @@
 
 		// Media elements with data-src attributes
 		//toArray( slide.querySelectorAll( 'img[data-src], video[data-src], audio[data-src]' ) ).forEach( function( element ) {
-		toArray( slide.querySelectorAll( 'iframe[data-src], img[data-src], video[data-src], audio[data-src]' ) ).forEach( function( element ) {
+		toArray( slide.querySelectorAll( 'img[data-src], video[data-src], audio[data-src]' ) ).forEach( function( element ) {
 			element.setAttribute( 'src', element.getAttribute( 'data-src' ) );
 			element.setAttribute( 'data-lazy-loaded', '' );
 			element.removeAttribute( 'data-src' );
